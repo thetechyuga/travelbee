@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Travel Bee </title>
+
+ <!-- swiper cdn link -->
+ <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+ <!-- font awesome cdn link  -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+ <!-- custom css file link  -->
+ <link rel="stylesheet" href="styles.css">
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+</head>
+
+<body>
+<!-- header section starts -->
+
+
+<header>
+
+ 
+
+  <a href="#" class="logo">
+    <img src="Images/logo-removebg-preview.png" alt="TravelBee Logo" style="height:50px; vertical-align: middle;"> <!-- Adjust height as needed -->
+    Travel<span>B</span>ee
+  </a>
+  <div id="menu-bar" class="fas fa-bars"></div>
+  
+  
+  <nav class="navbar">
+    <a href="#home">home</a>
+    <a href="#book">book</a>
+    <a href="#packages">packages</a>
+    <a href="#services">services</a>
+    <a href="#gallery">gallery</a>
+    <a href="#contact">contact</a>
+  </nav>
+  
+
+
+</header>
+
+<!-- header section ends    -->
+
+<!-- login form container -->
+
+<!-- <div class="login-form-container">
+
+  <i class="fas fa-times" id="form-close"></i>
+
+  <form action="">
+    <h3>login</h3>
+    <input type="email" class="box" placeholder="enter your email">
+    <input type="password" class="box" placeholder="enter your password">
+    <input type="submit" value="login now" class="btn">
+    <input type="checkbox" id="remember">
+    <label for="remember">remember me</label>
+    <p>forget password? <a href="#">click here</a></p>
+    <p>don't have an account? <a href="#">register now</a></p>
+  </form>
+</div> -->
+
+<!-- home section starts -->
+
+<section class="home" id="home">
+  <div class="content">
+    <h3>adventure is worthwhile</h3>
+    <p>discover new places with us, adventure awaits</p>
+    <a href="#packages" class="btn">discover more</a>
+  </div>
+
+  <div class="controls">
+    <span class="vid-btn active" data-src="Images/vid-1.mp4"></span>
+    <span class="vid-btn" data-src="Images/vid-2.mp4"></span>
+    <span class="vid-btn" data-src="Images/vid-3.mp4"></span>
+    <span class="vid-btn" data-src="Images/vid-4.mp4"></span>
+    <span class="vid-btn" data-src="Images/vid-5.mp4"></span>
+  </div>
+
+  <div class="video-container">
+    <video src="Images/vid-1.mp4" id="video-slider" loop autoplay muted></video>
+  </div>
+
+</section> 
+
+<!-- home section ends --> 
+
+
+<!-- book section starts -->
+<section class="book" id="book">
+  <h1 class="heading">
+    <span>b</span>
+    <span>o</span>
+    <span>o</span>
+    <span>k</span>
+    <span class="space"></span>
+    <span>n</span>
+    <span>o</span>
+    <span>w</span>
+  </h1>
+  
+
+  <div class="row">
+    <div class="image">
+        <img src="Images/book-img.svg" alt="">
+        <!-- <img src="Images/logo2.jpeg" alt=""> -->
+    </div>
+    <form id="bookNowForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="9fb915fc-61f9-4487-978d-58ce882ae5e2">
+        
+        <div class="inputBox">
+            <h3>Name</h3>
+            <input type="text" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="inputBox">
+            <h3>Mobile Number</h3>
+            <input type="tel" name="mobile" placeholder="Your Mobile Number" required>
+        </div>
+        <div class="inputBox">
+            <h3>Mail Id</h3>
+            <input type="email" name="MailId" placeholder="Enter MailId" required>
+        </div>
+        <div class="inputBox">
+            <h3>From</h3>
+            <input type="text" name="From" placeholder="Enter From Place" required>
+        </div>
+        <div class="inputBox">
+            <h3>To</h3>
+            <input type="text" name="To" placeholder="Enter The destination" required>
+        </div>
+        <input type="submit" class="btn" value="Book Now">
+    </form>
+    <div id="responseMessage" style="display:none;"></div>
+</div>
+
+
+</section>
+
+
+<!-- book section ends -->
+
+
+<!-- packages section starts -->
+
+
+<section class="packages" id="packages">
+
+  <h1 class="heading">
+    <span>p</span>
+    <span>a</span>
+    <span>c</span>
+    <span>k</span>
+    <span>a</span>
+    <span>g</span>
+    <span>e</span>
+    <span>s</span>
+  </h1>
+
+  <div class="box-container">
+
+    <div class="box">
+      <img src="images/kashmir.jpg" alt="Kashmir Package">
+      <div class="content">
+          <h3> <i class="fas fa-map-marker-alt"></i> Kashmir </h3>
+          <li style="font-size: medium; margin-top: 1rem"> 4 Nights/ 5 Days</li>
+          <li style="font-size: medium;">3* accommodations</li>
+          <li style="font-size: medium;">Breakfast and Dinner</li>
+          <li style="font-size: medium;">Local transfer</li>
+          <li style="font-size: medium;">All sightseeings</li>
+          <div class="price" style="font-size: medium;"> <strong>₹12999/- onwards </strong> </div>
+          <a href="#book" class="btn">Book Now</a>
+      </div>
+  </div>
+  
+
+    <div class="box">
+      <img src="images/himachal.jfif" alt="">
+      <div class="content">
+        <h3> <i class="fas fa-map-marker-alt"></i> Himachal (Shimla, Kulu) </h3>
+        <li style="font-size: medium; margin-top: 1rem;"> 4 Nights/ 5 Days</li>
+        <li style="font-size: medium;">3* accommodations</li>
+        <li style="font-size: medium;">Breakfast and Dinner</li>
+        <li style="font-size: medium;">Local transfer</li>
+        <li style="font-size: medium;">All sightseeings</li>
+        <div class="price" style="font-size: medium;"> <strong>₹11499/- onwards</strong> </div>
+        <a href="#book" class="btn">Book Now</a>
+    </div>
+    </div>
+
+    <div class="box">
+      <img src="images/kerala.jfif" alt="">
+      <div class="content">
+        <h3> <i class="fas fa-map-marker-alt"></i> Kerala </h3>
+        <li style="font-size: medium; margin-top: 1rem;;"> 4 Nights/ 5 Days</li>
+        <li style="font-size: medium;">3* accommodations</li>
+        <li style="font-size: medium;">Breakfast and Dinner</li>
+        <li style="font-size: medium;">Local transfer</li>
+        <li style="font-size: medium;">All sightseeings</li>
+        <div class="price" style="font-size: medium;"> <strong>₹10999/- onwards </strong></div>
+        <a href="#book" class="btn">Book Now</a>
+    </div>
+    </div>
+
+    <div class="box">
+      <img src="images/andaman.jfif" alt="">
+      <div class="content">
+        <h3> <i class="fas fa-map-marker-alt"></i> Andaman </h3>
+        <li style="font-size: medium; margin-top: 1rem"> 4 Nights/ 5 Days</li>
+        <li style="font-size: medium;">3* accommodations</li>
+        <li style="font-size: medium;">Breakfast and Dinner</li>
+        <li style="font-size: medium;">Local transfer</li>
+        <li style="font-size: medium;">All sightseeings</li>
+        <div class="price" style="font-size: medium;"> <strong>₹13999/- onwards</strong> </div>
+        <a href="#book" class="btn">Book Now</a>
+    </div>
+    </div>
+
+    <div class="box">
+      <img src="images/kedarinath.jfif" alt="">
+      <div class="content">
+        <h3> <i class="fas fa-map-marker-alt"></i> Kedarnath </h3>
+        <li style="font-size: medium; margin-top: 1rem"> 4 Nights/ 5 Days</li>
+        <li style="font-size: medium;">3* accommodations</li>
+        <li style="font-size: medium;">Breakfast and Dinner</li>
+        <li style="font-size: medium;">Local transfer</li>
+        <li style="font-size: medium;">All sightseeings</li>
+        <div class="price" style="font-size: medium;"> <strong> ₹17999/- onwards </strong> </div>
+        <a href="#book" class="btn">Book Now</a>
+    </div>
+    </div>
+
+    <div class="box">
+      <img src="images/ooty.jfif" alt="">
+      <div class="content">
+        <h3> <i class="fas fa-map-marker-alt"></i> OOty </h3>
+        <li style="font-size: medium; margin-top: 1rem"> 4 Nights/ 5 Days</li>
+        <li style="font-size: medium;">3* accommodations</li>
+        <li style="font-size: medium;">Breakfast and Dinner</li>
+        <li style="font-size: medium;">Local transfer</li>
+        <li style="font-size: medium;">All sightseeings</li>
+        <div class="price" style="font-size: medium;"><strong> ₹12999/- onwards</strong>  </div>
+        <a href="#book" class="btn">Book Now</a>
+    </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- packages section ends -->
+
+
+<!-- services section starts -->
+<section class="whyus" id="whyus">
+
+  <h1 class="heading">
+    <span>w</span>
+    <span>h</span>
+    <span>y</span>
+    <span>c</span>
+    <span>h</span>
+    <span>o</span>
+    <span>s</span>
+    <span>e</span>
+    <span>u</span>
+    <span>s</span>
+    <span>?</span>
+  </h1>
+
+  <div class="box-container">
+
+    <div class="box">
+      <img src="Images/s-1.jpeg" alt="">
+    </div>
+    <div class="box">
+      <img src="Images/s-2.jpeg" alt="">
+    </div>
+    <div class="box">
+      <img src="Images/s-3.jpeg" alt="">
+      
+    </div>
+    <div class="box" >
+      <img src="Images/s-4.jpeg" alt="" >
+      <!-- <i class="fas fa-globe-asia"></i> -->
+    </div>
+    <div class="box">
+      <img src="Images/s-5.jpeg" alt="" >
+    </div>
+    <div class="box" style="opacity: 0;">
+      <img src="Images/s-5.jpeg" alt="" style="display: none;">
+    </div>
+  </div>
+</section>
+
+<!-- whyus section ends -->
+
+<!-- services start -->
+
+<section class="services" id="services">
+  <h1 class="heading">
+    <span>s</span>
+    <span>e</span>
+    <span>r</span>
+    <span>v</span>
+    <span>i</span>
+    <span>c</span>
+    <span>e</span>
+    <span>s</span>
+  </h1>
+
+  <div class="service-container">
+    <div class="service-box">
+      <i class="icon fa fa-plane"></i>
+      <h3>Flight Booking</h3>
+      <p>Book flights at the best prices and with flexible options.</p>
+    </div>
+    <div class="service-box">
+      <i class="icon fa fa-passport"></i>
+      <h3>Passport Service</h3>
+      <p>Assistance with passport applications and renewals.</p>
+    </div>
+    <div class="service-box">
+      <i class="icon fa fa-file-alt"></i>
+      <h3>Visa Assistance</h3>
+      <p>Expert help with visa applications and documentation.</p>
+    </div>
+    <div class="service-box">
+      <i class="icon fa fa-umbrella-beach"></i>
+      <h3>Holiday Packages</h3>
+      <p>Customized holiday packages for your perfect getaway.</p>
+    </div>
+    <div class="service-box">
+      <i class="icon fa fa-train"></i>
+      <h3>Train/Bus Bookings</h3>
+      <p>Convenient train and bus ticket bookings for smooth travel.</p>
+    </div>
+    <div class="service-box">
+      <i class="icon fa fa-ship"></i>
+      <h3>Cruise Packages</h3>
+      <p>Luxurious cruise packages to explore the seas.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- gallery section starts -->
+
+<section class="gallery" id="gallery">
+
+  <h1 class="heading">
+    <span>g</span>
+    <span>a</span>
+    <span>l</span>
+    <span>l</span>
+    <span>e</span>
+    <span>r</span>
+    <span>y</span>
+  </h1>
+
+  <div class="box-container">
+
+    <div class="box">
+      <img src="images/g-1.jpg" alt="">
+      <div class="content">
+        <h3>amazing places</h3>
+        <p>Explore more with Us</p>
+        <a href="#book" class="btn">Book Now</a>
+      </div>
+    </div>
+    <div class="box">
+      <img src="images/g-2.jpg" alt="">
+      <div class="content">
+        <h3>amazing places</h3>
+        <p>Quick Plan, Grab now</p>
+        <a href="#book" class="btn">Book Now</a>
+      </div>
+    </div>
+    <div class="box">
+      <img src="images/g-3.jpg" alt="">
+      <div class="content">
+        <h3>amazing places</h3>
+        <p>Jobs fill your pockets, but adventures fill your soul</p>
+        <a href="#book" class="btn">Book Now</a>
+      </div>
+    </div>
+    <div class="box">
+      <img src="images/g-4.jpg" alt="">
+      <div class="content">
+        <h3>amazing places</h3>
+        <p>Admire to Explore untill you expire</p>
+        <a href="#book" class="btn">Book Now</a>
+      </div>
+    </div>
+    <div class="box">
+      <img src="images/g-5.jpg" alt="">
+      <div class="content">
+        <h3>amazing places</h3>
+        <p>Adventiorus place </p>
+        <a href="#book" class="btn">Book Now</a>
+      </div>
+    </div>
+    <div class="box">
+      <img src="images/g-6.jpg" alt="">
+      <div class="content">
+        <h3>amazing places</h3>
+        <p>Take only memories, leave only footprints</p>
+        <a href="#book" class="btn">Book Now</a>
+      </div>
+    </div>
+    <div class="box">
+      <img src="images/g-7.jpg" alt="">
+      <div class="content">
+        <h3>amazing places</h3>
+        <p>Traveling – it leaves you speechless, then turns you into a storytelle</p>
+        <a href="#book" class="btn">Book Now</a>
+      </div>
+    </div>
+    <div class="box">
+      <img src="images/g-8.jpg" alt="">
+      <div class="content">
+        <h3>amazing places</h3>
+        <p>Life is either a daring adventure or nothing at al</p>
+        <a href="#book" class="btn">Book Now</a>
+      </div>
+    </div>
+    <div class="box">
+      <img src="images/g-9.jpg" alt="">
+      <div class="content">
+        <h3>amazing places</h3>
+        <p>Adventure is worthwhile in itself</p>
+        <a href="#book" class="btn">Book Now</a>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- gallery section ends -->
+
+
+<!-- review section starts  -->
+
+<!-- <section class="review" id="review">
+
+  <h1 class="heading">
+    <span>r</span>
+    <span>e</span>
+    <span>v</span>
+    <span>i</span>
+    <span>e</span>
+    <span>w</span>
+  </h1>
+
+  <div class="swiper-container review-slider">
+
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide">
+        <div class="box">
+          <img src="images/pic1.png" alt="">
+          <h3>john deo</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa adipisci quisquam sunt nesciunt fugiat odit
+            minus illum asperiores dolorum enim sint quod ipsam distinctio molestias consectetur ducimus beatae,
+            reprehenderit exercitationem!</p>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="box">
+          <img src="images/pic2.png" alt="">
+          <h3>john deo</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa adipisci quisquam sunt nesciunt fugiat odit
+            minus illum asperiores dolorum enim sint quod ipsam distinctio molestias consectetur ducimus beatae,
+            reprehenderit exercitationem!</p>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="box">
+          <img src="images/pic3.png" alt="">
+          <h3>john deo</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa adipisci quisquam sunt nesciunt fugiat odit
+            minus illum asperiores dolorum enim sint quod ipsam distinctio molestias consectetur ducimus beatae,
+            reprehenderit exercitationem!</p>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="box">
+          <img src="images/pic4.png" alt="">
+          <h3>john deo</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa adipisci quisquam sunt nesciunt fugiat odit
+            minus illum asperiores dolorum enim sint quod ipsam distinctio molestias consectetur ducimus beatae,
+            reprehenderit exercitationem!</p>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>  -->
+
+<!-- review section ends -->
+
+
+
+
+<!-- contact section starts -->
+
+<!-- <section class="contact" id="contact">
+  <h1 class="heading">
+    <span>c</span>
+    <span>o</span>
+    <span>n</span>
+    <span>t</span>
+    <span>a</span>
+    <span>c</span>
+    <span>t</span>
+  </h1>
+
+  <div class="contact-details">
+    <div class="image">
+      <img src="images/logo.jpeg" alt="TravelBee Logo">
+    </div>
+    <div class="details">
+      <p><i class="fas fa-phone-alt"></i> Contact Numbers: 9380077820, 8296200530, 9113566637</p>
+      <p><i class="fas fa-map-marker-alt"></i> Address: 2-230/4 Opposite Municipal Corporation Office, Kalaburagi</p>
+      <p><i class="fas fa-envelope"></i> Email: <a href="mailto:travelbee81@gmail.com">travelbee81@gmail.com</a></p>
+      <p>
+        <i class="fab fa-facebook"></i> Facebook: 
+        <a href="https://www.facebook.com/profile.php?id=61568172513426&mibextid=ZbWKwL" target="_blank">travelbee</a>
+      </p>
+      <p>
+        <i class="fab fa-instagram"></i> Instagram: 
+        <a href="https://www.instagram.com/travelbeetb/profilecard/?igsh=a3phOHkyYmx6cXIz" target="_blank">travelbeetb</a>
+      </p>
+    </div>
+  </div>
+</section> -->
+
+<section class="contact" id="contact">
+  <h1 class="heading">
+    <span>c</span>
+    <span>o</span>
+    <span>n</span>
+    <span>t</span>
+    <span>a</span>
+    <span>c</span>
+    <span>t</span>
+  </h1>
+
+  <div class="contact-container">
+    <div class="image">
+      <img src="images/logo.jpeg" alt="TravelBee Logo" style="margin-left: 4rem;">
+    </div>
+    <div class="details" style="margin-left: 5rem; margin-top: 4rem;">
+      <p><i class="fas fa-phone-alt"></i> <strong>Contact Numbers:</strong> 9380077820, 8296200530, 9113566637</p>
+      <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 2-230/4 Opposite Municipal Corporation Office, Kalaburagi</p>
+      <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:travelbee81@gmail.com">travelbee81@gmail.com</a></p>
+      <p><i class="fab fa-facebook"></i> <strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=61568172513426&mibextid=ZbWKwL" target="_blank">travelbee</a></p>
+      <p><i class="fab fa-instagram"></i> <strong>Instagram:</strong> <a href="https://www.instagram.com/travelbeetb/profilecard/?igsh=a3phOHkyYmx6cXIz" target="_blank">travelbeetb</a></p>
+    </div>
+  </div>
+  
+</section>
+
+<!-- contact section ends -->
+
+
+
+<!-- brand section starts -->
+
+
+<!-- <section class="brand-container">
+
+  <div class="swiper-container brand-slider">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="images/1.jpg" alt=""></div>
+      <div class="swiper-slide"><img src="images/2.jpg" alt=""></div>
+      <div class="swiper-slide"><img src="images/3.jpg" alt=""></div>
+      <div class="swiper-slide"><img src="images/4.jpg" alt=""></div>
+      <div class="swiper-slide"><img src="images/5.jpg" alt=""></div>
+      <div class="swiper-slide"><img src="images/6.jpg" alt=""></div>
+    </div>
+  </div>
+
+</section> -->
+
+
+
+<!-- brand section ends -->
+
+
+<!-- footer section starts -->
+
+<section class="footer">
+
+  <div class="box-container">
+
+    <div class="box">
+      <h3>About Us</h3>
+      <p>Travel anywhere in the world, your flight, hotel booking, sightseeing and most importantly your comfort is our responsibility.Travel is the only thing you buy that makes you richer”. We completely swear by this and believe in fulfilling travel dreams that make you invariably rich by the day. We inspire our customers to live a rich life, full of unforgettable travel experiences.</p>
+    </div>
+    <div class = "box" style="margin-left: 1rem;">
+    <h3>Our Mission</h3>
+      <p>Our mission is not just to be a travel agency which helps you book a holiday;we want to be your travel partner who would go an extra mile to help you choose an ideal destination and learn more about the place you have been dreaming to visit. Since holidays are more about personal choices and interests, we bring to you customizable tour packages as well.</p>
+      </div>
+
+    <div class="box">
+      <h3>quick links</h3>
+      <a href="#home">home</a>
+      <a href="#book">book</a>
+      <a href="#packages">packages</a>
+      <a href="#services">services</a>
+      <a href="#gallary">gallery</a>
+      <a href="#whyus">Why Choose Us?</a>
+      <a href="#contact">contact</a>
+    </div>
+   
+  </div>
+  <h1 class="credit"> developed by <span> YUGA </span> @ all rights reserved! </h1>
+</section>
+
+ <!-- <div class="box">
+      <h3>follow us</h3>
+      <a href="#">facebook</a>
+      <a href="#">instagram</a>
+      <a href="#">twitter</a>
+      <a href="#">linkedin</a>
+    </div> -->
+
+<!-- footer section ends -->
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- custom js file link -->
+<script src="script.js"></script>
+
+</body>
+</html>
