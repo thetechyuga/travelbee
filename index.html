@@ -6,6 +6,9 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Travel Bee </title>
 
+ <link  rel="icon" href="Images/icon.webp" type="image/png">
+
+
  <!-- swiper cdn link -->
  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
@@ -17,16 +20,22 @@
 
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-
 </head>
 
-<body>
-<!-- header section starts -->
 
+<body>
+  <!-- WhatsApp Floating Icon -->
+  <a href="https://wa.me/9380077820?text=Thank%20you%20for%20choosing%20TravelBee.%20We'll%20get%20back%20to%20you%20shortly." 
+  target="_blank" 
+  id="whatsapp-icon">
+ <img src="Images/whatsapp1.webp" alt="WhatsApp" />
+</a>
+
+
+<!-- header section starts -->
 
 <header>
 
- 
 
   <a href="#" class="logo">
     <img src="Images/logo-removebg-preview.png" alt="TravelBee Logo" style="height:50px; vertical-align: middle;"> <!-- Adjust height as needed -->
@@ -41,32 +50,15 @@
     <a href="#packages">packages</a>
     <a href="#services">services</a>
     <a href="#gallery">gallery</a>
-    <a href="#contact">contact</a>
+    <a href="#contact1">Contact</a>
   </nav>
   
-
 
 </header>
 
 <!-- header section ends    -->
 
 <!-- login form container -->
-
-<!-- <div class="login-form-container">
-
-  <i class="fas fa-times" id="form-close"></i>
-
-  <form action="">
-    <h3>login</h3>
-    <input type="email" class="box" placeholder="enter your email">
-    <input type="password" class="box" placeholder="enter your password">
-    <input type="submit" value="login now" class="btn">
-    <input type="checkbox" id="remember">
-    <label for="remember">remember me</label>
-    <p>forget password? <a href="#">click here</a></p>
-    <p>don't have an account? <a href="#">register now</a></p>
-  </form>
-</div> -->
 
 <!-- home section starts -->
 
@@ -128,15 +120,15 @@
             <h3>Mail Id</h3>
             <input type="email" name="MailId" placeholder="Enter MailId" required>
         </div>
-        <div class="inputBox">
+        <!-- <div class="inputBox">
             <h3>From</h3>
             <input type="text" name="From" placeholder="Enter From Place" required>
-        </div>
+        </div> -->
         <div class="inputBox">
             <h3>To</h3>
             <input type="text" name="To" placeholder="Enter The destination" required>
         </div>
-        <input type="submit" class="btn" value="Book Now">
+        <input type="submit" class="btn" value="Enquire Now">
     </form>
     <div id="responseMessage" style="display:none;"></div>
 </div>
@@ -170,42 +162,79 @@
       <img src="Images/kashmir.jpg" alt="Kashmir Package">
       <div class="content">
           <h3> <i class="fas fa-map-marker-alt"></i> Kashmir </h3>
-          <li style="font-size: medium; margin-top: 1rem"> 4 Nights/ 5 Days</li>
+          <!-- <li style="font-size: medium; margin-top: 1rem"> 4 Nights/ 5 Days</li>
           <li style="font-size: medium;">3* accommodations</li>
           <li style="font-size: medium;">Breakfast and Dinner</li>
           <li style="font-size: medium;">Local transfer</li>
-          <li style="font-size: medium;">All sightseeings</li>
+          <li style="font-size: medium;">All sightseeings</li> -->
           <div class="price" style="font-size: medium;"> <strong>₹12999/- onwards </strong> </div>
-          <a href="#book" class="btn">Book Now</a>
+          <button class="btn" onclick="openBookingForm('Kerala')">Book Now</button>
+        </div>
       </div>
-  </div>
   
 
     <div class="box">
       <img src="Images/himachal.jfif" alt="">
       <div class="content">
         <h3> <i class="fas fa-map-marker-alt"></i> Himachal (Shimla, Kulu) </h3>
-        <li style="font-size: medium; margin-top: 1rem;"> 4 Nights/ 5 Days</li>
+        <!-- <li style="font-size: medium; margin-top: 1rem;"> 4 Nights/ 5 Days</li>
         <li style="font-size: medium;">3* accommodations</li>
         <li style="font-size: medium;">Breakfast and Dinner</li>
         <li style="font-size: medium;">Local transfer</li>
-        <li style="font-size: medium;">All sightseeings</li>
+        <li style="font-size: medium;">All sightseeings</li> -->
         <div class="price" style="font-size: medium;"> <strong>₹11499/- onwards</strong> </div>
-        <a href="#book" class="btn">Book Now</a>
+        <button class="btn" onclick="openBookingForm('Himachal -Shimla, Kulu')">Book Now</button>
     </div>
     </div>
+
+     <!-- Modal form -->
+<div id="formModal">
+  <div class="modal-content">
+    <input type="text" id="name" placeholder="Your Name" pattern="^[A-Za-z\s]+$"  required />
+    <input type="tel" id="contact" placeholder="Contact Number" pattern="^\d{10}$" minlength="10" maxlength="10" required />
+    <input type="email" id="email" placeholder="Email Address"  style="text-transform: lowercase;"  required />
+    <input type="hidden" id="packageName" required/>
+    
+    <!-- Loading Text -->
+    <div id="loadingText" style="display: none; color: #000; margin-top: 1rem; font-size: 1.5rem;">Processing... Please wait.</div>
+
+    <button onclick="submitForm()">Submit</button>
+  </div>
+</div>
+
+
+        <!-- Success Modal -->
+    <div id="successModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('successModal')">&times;</span>
+        <h2>Booking Submitted Successfully!</h2>
+        <p>Your booking has been successfully submitted. Thank you!</p>
+        <button onclick="closeModal('successModal')">Close</button>
+      </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div id="errorModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('errorModal')">&times;</span>
+        <h2>Something Went Wrong!</h2>
+        <p>There was an error while submitting your booking. Please try again.</p>
+        <button onclick="closeModal('errorModal')">Close</button>
+      </div>
+    </div>
+
 
     <div class="box">
       <img src="Images/kerala.jfif" alt="">
       <div class="content">
         <h3> <i class="fas fa-map-marker-alt"></i> Kerala </h3>
-        <li style="font-size: medium; margin-top: 1rem;;"> 4 Nights/ 5 Days</li>
+        <!-- <li style="font-size: medium; margin-top: 1rem;;"> 4 Nights/ 5 Days</li>
         <li style="font-size: medium;">3* accommodations</li>
         <li style="font-size: medium;">Breakfast and Dinner</li>
         <li style="font-size: medium;">Local transfer</li>
-        <li style="font-size: medium;">All sightseeings</li>
+        <li style="font-size: medium;">All sightseeings</li> -->
         <div class="price" style="font-size: medium;"> <strong>₹10999/- onwards </strong></div>
-        <a href="#book" class="btn">Book Now</a>
+        <button class="btn" onclick="openBookingForm('Kerala')">Book Now</button>
     </div>
     </div>
 
@@ -213,13 +242,13 @@
       <img src="Images/andaman.jfif" alt="">
       <div class="content">
         <h3> <i class="fas fa-map-marker-alt"></i> Andaman </h3>
-        <li style="font-size: medium; margin-top: 1rem"> 4 Nights/ 5 Days</li>
+        <!-- <li style="font-size: medium; margin-top: 1rem"> 4 Nights/ 5 Days</li>
         <li style="font-size: medium;">3* accommodations</li>
         <li style="font-size: medium;">Breakfast and Dinner</li>
         <li style="font-size: medium;">Local transfer</li>
-        <li style="font-size: medium;">All sightseeings</li>
+        <li style="font-size: medium;">All sightseeings</li> -->
         <div class="price" style="font-size: medium;"> <strong>₹13999/- onwards</strong> </div>
-        <a href="#book" class="btn">Book Now</a>
+        <button class="btn" onclick="openBookingForm('Andaman')">Book Now</button>
     </div>
     </div>
 
@@ -227,27 +256,27 @@
       <img src="Images/kedarinath.jfif" alt="">
       <div class="content">
         <h3> <i class="fas fa-map-marker-alt"></i> Kedarnath </h3>
-        <li style="font-size: medium; margin-top: 1rem"> 4 Nights/ 5 Days</li>
+        <!-- <li style="font-size: medium; margin-top: 1rem"> 4 Nights/ 5 Days</li>
         <li style="font-size: medium;">3* accommodations</li>
         <li style="font-size: medium;">Breakfast and Dinner</li>
         <li style="font-size: medium;">Local transfer</li>
-        <li style="font-size: medium;">All sightseeings</li>
+        <li style="font-size: medium;">All sightseeings</li> -->
         <div class="price" style="font-size: medium;"> <strong> ₹17999/- onwards </strong> </div>
-        <a href="#book" class="btn">Book Now</a>
+        <button class="btn" onclick="openBookingForm('Kedarnath')">Book Now</button>
     </div>
     </div>
 
     <div class="box">
       <img src="Images/ooty.jfif" alt="">
       <div class="content">
-        <h3> <i class="fas fa-map-marker-alt"></i> OOty </h3>
-        <li style="font-size: medium; margin-top: 1rem"> 4 Nights/ 5 Days</li>
+        <h3> <i class="fas fa-map-marker-alt"></i> Ooty </h3>
+        <!-- <li style="font-size: medium; margin-top: 1rem"> 4 Nights/ 5 Days</li>
         <li style="font-size: medium;">3* accommodations</li>
         <li style="font-size: medium;">Breakfast and Dinner</li>
         <li style="font-size: medium;">Local transfer</li>
-        <li style="font-size: medium;">All sightseeings</li>
+        <li style="font-size: medium;">All sightseeings</li> -->
         <div class="price" style="font-size: medium;"><strong> ₹12999/- onwards</strong>  </div>
-        <a href="#book" class="btn">Book Now</a>
+        <button class="btn" onclick="openBookingForm('Ooty')">Book Now</button>
     </div>
     </div>
 
@@ -273,34 +302,35 @@
     <div class="service-box">
       <i class="icon fa fa-plane"></i>
       <h3>Flight Booking</h3>
-      <p>Book flights at the best prices and with flexible options.</p>
+      <p style="font-size: 1.5rem; padding: 1rem;">Book flights at the best prices and with flexible options.</p>
     </div>
     <div class="service-box">
       <i class="icon fa fa-passport"></i>
-      <h3>Passport Service</h3>
-      <p>Assistance with passport applications and renewals.</p>
+      <h3>Passport and Visa</h3>
+      <p style="font-size: 1.5rem; padding: 1rem;">Assistance with passport applications, renewals, and visa documentation.</p>
     </div>
     <div class="service-box">
-      <i class="icon fa fa-file-alt"></i>
-      <h3>Visa Assistance</h3>
-      <p>Expert help with visa applications and documentation.</p>
+      <i class="icon fa fa-dollar-sign"></i>
+      <h3>Currency Exchange</h3>
+      <p style="font-size: 1.5rem; padding: 1rem;">Exchange currencies at competitive rates for your travel needs.</p>
     </div>
     <div class="service-box">
       <i class="icon fa fa-umbrella-beach"></i>
       <h3>Holiday Packages</h3>
-      <p>Customized holiday packages for your perfect getaway.</p>
+      <p style="font-size: 1.5rem; padding: 1rem;">Customized holiday packages for your perfect getaway.</p>
     </div>
     <div class="service-box">
       <i class="icon fa fa-train"></i>
       <h3>Train/Bus Bookings</h3>
-      <p>Convenient train and bus ticket bookings for smooth travel.</p>
+      <p style="font-size: 1.5rem; padding: 1rem;">Convenient train and bus ticket bookings for smooth travel.</p>
     </div>
     <div class="service-box">
       <i class="icon fa fa-ship"></i>
       <h3>Cruise Packages</h3>
-      <p>Luxurious cruise packages to explore the seas.</p>
+      <p style="font-size: 1.5rem; padding: 1rem;">Luxurious cruise packages to explore the seas.</p>
     </div>
   </div>
+  
 </section>
 
 <!-- services section starts -->
@@ -310,39 +340,43 @@
     <span>w</span>
     <span>h</span>
     <span>y</span>
-    <span>c</span>
-    <span>h</span>
-    <span>o</span>
-    <span>s</span>
+    <span>t</span>
+    <span>r</span>
+    <span>a</span>
+    <span>v</span>
     <span>e</span>
-    <span>u</span>
-    <span>s</span>
+    <span>l</span>
+    <span>b</span>
+    <span>e</span>
+    <span>e</span>
     <span>?</span>
   </h1>
 
   <div class="box-container">
 
-    <div class="box">
-      <img src="Images/s-1.jpeg" alt="">
+    <div class="why-travelbee-container">
+      <div class="why-box">
+        <i class="icon fa fa-heart"></i>
+        <h3>We Love Listening</h3>
+        <p>Your holiday, your team. We'll fill in the blanks to plan the perfect trip in the blink of an eye.</p>
+      </div>
+      <div class="why-box">
+        <i class="icon fa fa-handshake"></i>
+        <h3>Your Trusted Advisor</h3>
+        <p>We'll answer your every question. Our experienced travel experts and real-time, on-field know-how give us this advantage.</p>
+      </div>
+      <div class="why-box">
+        <i class="icon fa fa-check-circle"></i>
+        <h3>Easy as ABC</h3>
+        <p>Travel smooth and stress-free. That's how easy we make it.</p>
+      </div>
+      <div class="why-box">
+        <i class="icon fa fa-star"></i>
+        <h3>Memorable Experiences</h3>
+        <p>Do everything or do nothing. Either way, your holiday will be nothing less than extraordinary.</p>
+      </div>
     </div>
-    <div class="box">
-      <img src="Images/s-2.jpeg" alt="">
-    </div>
-    <div class="box">
-      <img src="Images/s-3.jpeg" alt="">
-      
-    </div>
-    <div class="box" >
-      <img src="Images/s-4.jpeg" alt="" >
-      <!-- <i class="fas fa-globe-asia"></i> -->
-    </div>
-    <div class="box">
-      <img src="Images/s-5.jpeg" alt="" >
-    </div>
-    <div class="box" style="opacity: 0;">
-      <img src="Images/s-5.jpeg" alt="" style="display: none;">
-    </div>
-  </div>
+    
 </section>
 
 <!-- whyus section ends -->
@@ -369,7 +403,7 @@
   <div class="box-container">
 
     <div class="box">
-      <img src="Images/g-1.jpg" alt="">
+      <img src="Images/z-1.JPG" alt="">
       <div class="content">
         <h3>amazing places</h3>
         <p>Explore more with Us</p>
@@ -377,7 +411,7 @@
       </div>
     </div>
     <div class="box">
-      <img src="Images/g-2.jpg" alt="">
+      <img src="Images/z-2.jpg" alt="">
       <div class="content">
         <h3>amazing places</h3>
         <p>Quick Plan, Grab now</p>
@@ -385,7 +419,7 @@
       </div>
     </div>
     <div class="box">
-      <img src="Images/g-3.jpg" alt="">
+      <img src="Images/z-3.jpeg" alt="">
       <div class="content">
         <h3>amazing places</h3>
         <p>Jobs fill your pockets, but adventures fill your soul</p>
@@ -393,7 +427,7 @@
       </div>
     </div>
     <div class="box">
-      <img src="Images/g-4.jpg" alt="">
+      <img src="Images/z-4.jpeg" alt="">
       <div class="content">
         <h3>amazing places</h3>
         <p>Admire to Explore untill you expire</p>
@@ -401,7 +435,7 @@
       </div>
     </div>
     <div class="box">
-      <img src="Images/g-5.jpg" alt="">
+      <img src="Images/z-5.jpeg" alt="">
       <div class="content">
         <h3>amazing places</h3>
         <p>Adventiorus place </p>
@@ -409,14 +443,14 @@
       </div>
     </div>
     <div class="box">
-      <img src="Images/g-6.jpg" alt="">
+      <img src="Images/z-6.jpg" alt="">
       <div class="content">
         <h3>amazing places</h3>
         <p>Take only memories, leave only footprints</p>
         <a href="#book" class="btn">Book Now</a>
       </div>
     </div>
-    <div class="box">
+    <!-- <div class="box">
       <img src="Images/g-7.jpg" alt="">
       <div class="content">
         <h3>amazing places</h3>
@@ -439,7 +473,7 @@
         <p>Adventure is worthwhile in itself</p>
         <a href="#book" class="btn">Book Now</a>
       </div>
-    </div>
+    </div> -->
 
   </div>
 
@@ -449,134 +483,49 @@
 <!-- gallery section ends -->
 
 
-<!-- review section starts  -->
-
-<!-- <section class="review" id="review">
+<section class="aboutus" id="aboutus">
 
   <h1 class="heading">
-    <span>r</span>
-    <span>e</span>
-    <span>v</span>
-    <span>i</span>
-    <span>e</span>
-    <span>w</span>
-  </h1>
-
-  <div class="swiper-container review-slider">
-
-    <div class="swiper-wrapper">
-
-      <div class="swiper-slide">
-        <div class="box">
-          <img src="images/pic1.png" alt="">
-          <h3>john deo</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa adipisci quisquam sunt nesciunt fugiat odit
-            minus illum asperiores dolorum enim sint quod ipsam distinctio molestias consectetur ducimus beatae,
-            reprehenderit exercitationem!</p>
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="box">
-          <img src="images/pic2.png" alt="">
-          <h3>john deo</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa adipisci quisquam sunt nesciunt fugiat odit
-            minus illum asperiores dolorum enim sint quod ipsam distinctio molestias consectetur ducimus beatae,
-            reprehenderit exercitationem!</p>
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="box">
-          <img src="images/pic3.png" alt="">
-          <h3>john deo</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa adipisci quisquam sunt nesciunt fugiat odit
-            minus illum asperiores dolorum enim sint quod ipsam distinctio molestias consectetur ducimus beatae,
-            reprehenderit exercitationem!</p>
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="box">
-          <img src="images/pic4.png" alt="">
-          <h3>john deo</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa adipisci quisquam sunt nesciunt fugiat odit
-            minus illum asperiores dolorum enim sint quod ipsam distinctio molestias consectetur ducimus beatae,
-            reprehenderit exercitationem!</p>
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>  -->
-
-<!-- review section ends -->
-
-
-
-
-<!-- contact section starts -->
-
-<!-- <section class="contact" id="contact">
-  <h1 class="heading">
-    <span>c</span>
-    <span>o</span>
-    <span>n</span>
-    <span>t</span>
     <span>a</span>
-    <span>c</span>
+    <span>b</span>
+    <span>o</span>
+    <span>u</span>
     <span>t</span>
+    <span>u</span>
+    <span>s</span>
   </h1>
-
-  <div class="contact-details">
-    <div class="image">
-      <img src="images/logo.jpeg" alt="TravelBee Logo">
-    </div>
-    <div class="details">
-      <p><i class="fas fa-phone-alt"></i> Contact Numbers: 9380077820, 8296200530, 9113566637</p>
-      <p><i class="fas fa-map-marker-alt"></i> Address: 2-230/4 Opposite Municipal Corporation Office, Kalaburagi</p>
-      <p><i class="fas fa-envelope"></i> Email: <a href="mailto:travelbee81@gmail.com">travelbee81@gmail.com</a></p>
-      <p>
-        <i class="fab fa-facebook"></i> Facebook: 
-        <a href="https://www.facebook.com/profile.php?id=61568172513426&mibextid=ZbWKwL" target="_blank">travelbee</a>
+  <div class="about-container">
+    <h2>Travel anywhere in the world with ease</h2>
+    <p>
+      “Travel is the only thing you buy that makes you richer.” We completely swear by this and believe in fulfilling travel dreams that make you invariably rich by the day. We inspire our customers to live a rich life, full of unforgettable travel experiences.
+    </p>
+    <p>
+      Travel is not just about destinations; it’s about the journey, the moments, and the experiences that make life richer. From the moment you start planning your trip with us, we are dedicated to ensuring that your experience is seamless, memorable, and entirely stress-free.
+    </p>
+  
+    <div class="mission-section">
+      <h1>Our Mission</h1>
+      <p style="font-family: 'Nunito', sans-serif;">
+        At TravelBee, our mission is to be more than just a travel agency. We aim to be your trusted travel partner, crafting personalized journeys that match your style and dreams. 
       </p>
-      <p>
-        <i class="fab fa-instagram"></i> Instagram: 
-        <a href="https://www.instagram.com/travelbeetb/profilecard/?igsh=a3phOHkyYmx6cXIz" target="_blank">travelbeetb</a>
+      <p style="font-family: 'Nunito', sans-serif;">
+        With our <span class="highlight-text">customizable tour packages</span>, we offer you the freedom to choose destinations, activities, and accommodations that make your journey unique and memorable.
+      </p>
+      <p style="font-family: 'Nunito', sans-serif;">
+        From the tranquil backwaters of Kerala to the majestic landscapes of Ladakh, we create extraordinary experiences that go beyond your expectations.
       </p>
     </div>
+    
   </div>
-</section> -->
+  
+ 
 
-<section class="contact" id="contact">
-  <h1 class="heading">
+
+  </section>
+
+
+  <section class="contact" id="contact1">
+    <h1 class="heading">
     <span>c</span>
     <span>o</span>
     <span>n</span>
@@ -588,10 +537,10 @@
 
   <div class="contact-container">
     <div class="image">
-      <img src="Images/logo.jpeg" alt="TravelBee Logo" style="margin-left: 4rem;">
+      <img src="Images/logo.jpeg" alt="TravelBee Logo" >
     </div>
-    <div class="details" style="margin-left: 5rem; margin-top: 4rem;">
-      <p><i class="fas fa-phone-alt"></i> <strong>Contact Numbers:</strong> 9380077820, 8296200530, 9113566637</p>
+    <div class="details" style="margin-left: 2rem; margin-top: 4rem;">
+      <p><i class="fas fa-phone-alt"></i> <strong>Contact Numbers:</strong>&nbsp;  9380077820, 9113566637</p>
       <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 2-230/4 Opposite Municipal Corporation Office, Kalaburagi</p>
       <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:travelbee81@gmail.com">travelbee81@gmail.com</a></p>
       <p><i class="fab fa-facebook"></i> <strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=61568172513426&mibextid=ZbWKwL" target="_blank">travelbee</a></p>
@@ -601,19 +550,22 @@
   
 </section>
 
+<div class="map-container">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3808.6396994020815!2d76.83331857516372!3d17.33292478354495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDE5JzU4LjUiTiA3NsKwNTAnMDkuMiJF!5e0!3m2!1sen!2sin!4v1734451384903!5m2!1sen!2sin" 
+    style="border:0; width: 100%; height: 100%;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
 <!-- contact section ends -->
 
 
 
-<!-- brand section starts -->
-
-
-<!-- brand section ends -->
-
-
 <!-- footer section starts -->
 
-<section class="footer">
+<!-- <section class="footer">
 
   <div class="box-container">
 
@@ -639,15 +591,46 @@
    
   </div>
   <h1 class="credit"> developed by <span> YUGA </span> @ all rights reserved! </h1>
+</section> -->
+
+<section class="footer">
+  <div class="box-container">
+    
+    <!-- Quick Links Section -->
+    <div class="box">
+      <h3>Quick Links</h3>
+      <a href="#home">Home</a>
+      <a href="#book">Book</a>
+      <a href="#packages">Packages</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#whyus">Why Choose Us?</a>
+      <a href="#contact">Contact</a>
+  </div>
+
+    <!-- Contact Section -->
+    <div class="box">
+      <h3>Contact Us</h3>
+      <p><i class="fa fa-phone-alt" style="font-size: 3rem; color: #f0bc10;"></i>&nbsp;  &nbsp;9380077820</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61568172513426&mibextid=ZbWKwL" target="_blank" aria-label="Facebook" title="Visit us on Facebook">
+          <p style="font-size: larger;"><i class="fab fa-facebook fa-2x"></i>  Travelbee</p>
+        </a>
+        <a href="https://www.google.com/maps/place/2-230/4+Opposite+Municipal+Corporation+Office,+Kalaburagi" target="_blank" aria-label="Location" title="Find us on Google Maps">
+          <p><i class="fas fa-map-marker-alt fa-2x"></i> &nbsp; 2-230/4 Opposite Municipal Corporation  Office, Kalaburagi</p>
+        </a>
+        <a href="https://www.instagram.com/travelbeetb/profilecard/?igsh=a3phOHkyYmx6cXIz" target="_blank" aria-label="Instagram" title="Visit us on Instagram">
+          <p><i class="fab fa-instagram fa-2x"></i>  travelbeetb</p>
+        </a>
+      </div>
+  </div>
+  </div>
+  
+  <h1 class="credit">Developed by <span>YUGA</span> @ All rights reserved!</h1>
+  
 </section>
 
- <!-- <div class="box">
-      <h3>follow us</h3>
-      <a href="#">facebook</a>
-      <a href="#">instagram</a>
-      <a href="#">twitter</a>
-      <a href="#">linkedin</a>
-    </div> -->
+
 
 <!-- footer section ends -->
 
